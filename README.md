@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+Tumhari local wali changes
+=======
+Remote (GitHub wali) changes
+>>>>>>> origin/main
+
 YouTube Tutorial on how I built this portfolio => https://youtu.be/ESHaail1eGc
 
 # Getting Started with Create React App
@@ -70,3 +77,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# my-react-portfolio
+>>>>>>> f6991599840930b7f2be167876d56048e9a78dd5
