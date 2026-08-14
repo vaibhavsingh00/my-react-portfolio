@@ -1,0 +1,211 @@
+[
+  {
+    "name": "Intellio.AI",
+    "category": "Artificial Intelligence & Web",
+    "description": "AI-powered SaaS platform.",
+    "summary": "AI-powered SaaS platform offering intelligent workflow automation and generative AI capabilities.",
+    "technologies": ["React", "Node.js", "Python", "Gemini API", "Tailwind CSS"],
+    "features": [
+      "AI-driven workflow and task automation",
+      "Seamless RESTful API integration",
+      "Modern interactive user dashboard"
+    ],
+    "role": "Full Stack & AI Developer"
+  },
+  {
+    "name": "SkyGuard SE",
+    "category": "Robotics & Drone Systems",
+    "description": "AI-powered surveillance drone.",
+    "summary": "GPS-based autonomous surveillance drone with AI object tracking and obstacle avoidance.",
+    "technologies": ["Arduino", "Raspberry Pi", "GPS", "Computer Vision", "Python"],
+    "features": [
+      "GPS waypoint autonomous navigation and tracking",
+      "AI-powered vision for real-time object tracking",
+      "Dynamic obstacle avoidance algorithms"
+    ],
+    "role": "Robotics & Drone Systems Developer"
+  },
+  {
+    "name": "ResQWings",
+    "category": "Robotics & Drone Systems",
+    "description": "AI-based disaster management drone system.",
+    "summary": "AI-based autonomous drone system designed for disaster management, survivor locating, and emergency relief.",
+    "technologies": ["Computer Vision", "Thermal Imaging", "Python", "Embedded Systems", "Flight Telemetry"],
+    "features": [
+      "Real-time aerial hazard and survivor detection",
+      "Automated disaster zone mapping and telemetry streaming",
+      "Emergency medical/payload drop capabilities"
+    ],
+    "role": "Robotics & AI Developer"
+  },
+  {
+    "name": "Roomzy",
+    "category": "Web Development & AI",
+    "description": "AI-powered room discovery and rental platform.",
+    "summary": "AI-powered room discovery and accommodation rental platform matching tenants with optimal spaces.",
+    "technologies": ["React", "Node.js", "Express", "MongoDB", "AI Recommendation Engine"],
+    "features": [
+      "Smart recommendation filtering and room matching",
+      "Interactive property listings and virtual tours",
+      "Secure user authentication and booking management"
+    ],
+    "role": "Full Stack Developer"
+  },
+  {
+    "name": "E-commerce Platform",
+    "category": "Web Development",
+    "description": "MERN stack with payments.",
+    "summary": "Developed a full-stack e-commerce site with cart, authentication, and Stripe payments.",
+    "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+    "features": [
+      "Product catalog and cart management",
+      "User authentication and security",
+      "Integrated Stripe payment processing"
+    ],
+    "role": "Full Stack Developer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/ecommerce" }
+    ]
+  },
+  {
+    "name": "Portfolio Website",
+    "category": "Web Development",
+    "description": "Personal portfolio site.",
+    "summary": "Built a responsive portfolio with animations using React and SCSS.",
+    "technologies": ["React", "SCSS", "CSS Animations", "Spline 3D", "EmailJS"],
+    "features": [
+      "Interactive 3D Spline embedding",
+      "Dynamic letter and folder flap animations",
+      "Integrated FRIDAY personal AI portfolio chatbot",
+      "Responsive navigation and layout across desktop, tablet, and mobile"
+    ],
+    "role": "Front-End Developer & UI Designer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/portfolio" }
+    ]
+  },
+  {
+    "name": "Pneumonia Detection",
+    "category": "Artificial Intelligence",
+    "description": "X-ray image analysis.",
+    "summary": "CNN deep learning model for detecting pneumonia with 90%+ accuracy.",
+    "technologies": ["Python", "TensorFlow", "Keras", "Convolutional Neural Networks (CNN)"],
+    "features": [
+      "Medical chest X-ray image classification",
+      "Deep learning pipeline with 90%+ diagnostic accuracy",
+      "Model training and evaluation metrics"
+    ],
+    "role": "AI / Deep Learning Developer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/pneumonia-detection" }
+    ]
+  },
+  {
+    "name": "Road Accident Prevention",
+    "category": "Artificial Intelligence",
+    "description": "AI safety system.",
+    "summary": "AI-powered accident prevention using real-time video analytics.",
+    "technologies": ["Python", "OpenCV", "YOLO", "Computer Vision"],
+    "features": [
+      "Real-time video stream analytics",
+      "Object detection and collision trajectory prediction",
+      "Automated hazard detection for road safety"
+    ],
+    "role": "Computer Vision / AI Developer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/road-accident-ai" }
+    ]
+  },
+  {
+    "name": "Modern Logo Design",
+    "category": "Graphic Design",
+    "description": "Minimalistic tech startup logo.",
+    "summary": "Designed a clean, modern logo using Adobe Illustrator, focusing on geometric balance.",
+    "technologies": ["Adobe Illustrator", "Typography", "Branding"],
+    "features": [
+      "Geometric and balanced visual aesthetics",
+      "Scalable vector branding for technology startups"
+    ],
+    "role": "Graphic Designer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/logo-design" }
+    ]
+  },
+  {
+    "name": "Branding Kit",
+    "category": "Graphic Design",
+    "description": "Full branding package.",
+    "summary": "Included typography, color palette, and mockups for social media branding.",
+    "technologies": ["Adobe Illustrator", "Adobe Photoshop", "Brand Strategy"],
+    "features": [
+      "Comprehensive typography hierarchy and color palettes",
+      "Social media mockups and asset guidelines"
+    ],
+    "role": "Brand Designer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/branding-kit" }
+    ]
+  },
+  {
+    "name": "SkyGuard SE",
+    "category": "Embedded Systems",
+    "description": "AI surveillance drone.",
+    "summary": "GPS-based drone with AI object tracking and obstacle avoidance.",
+    "technologies": ["Arduino", "GPS", "Computer Vision", "Python"],
+    "features": [
+      "GPS waypoint navigation and tracking",
+      "AI-powered vision for object identification",
+      "Real-time obstacle avoidance algorithms"
+    ],
+    "role": "Robotics & Drone Systems Developer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/skyguard" }
+    ]
+  },
+  {
+    "name": "Parcel Delivery Drone",
+    "category": "Embedded Systems",
+    "description": "Autonomous delivery drone.",
+    "summary": "Integrated payload drop system and optimized delivery routes.",
+    "technologies": ["Raspberry Pi", "Flight Controller", "Route Optimization", "Embedded C/Python"],
+    "features": [
+      "Autonomous flight path planning",
+      "Precision payload release mechanism",
+      "Hardware-software flight controller telemetry integration"
+    ],
+    "role": "Drone Systems Developer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/parcel-drone" }
+    ]
+  },
+  {
+    "name": "Travel Vlog Edit",
+    "category": "Other Projects",
+    "description": "Cinematic travel vlog.",
+    "summary": "Edited footage with transitions, color grading, and music sync.",
+    "technologies": ["Adobe Premiere Pro", "Color Grading", "Audio Sync"],
+    "features": [
+      "Dynamic pace matching and soundtrack rhythm synchronization",
+      "Cinematic color grading and seamless transitions"
+    ],
+    "role": "Video Editor",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/travel-vlog" }
+    ]
+  },
+  {
+    "name": "Event Highlight Reel",
+    "category": "Other Projects",
+    "description": "College event highlights.",
+    "summary": "Produced a dynamic highlights video for social media promotion.",
+    "technologies": ["Adobe Premiere Pro", "Adobe After Effects", "Motion Graphics"],
+    "features": [
+      "Motion graphics overlays and title cards",
+      "High-energy video montage optimized for social media engagement"
+    ],
+    "role": "Video Editor & Motion Designer",
+    "links": [
+      { "type": "github", "url": "https://github.com/yourusername/event-reel" }
+    ]
+  }
+]

@@ -1,95 +1,341 @@
-/* LEFT side — Skills section */
-.skills-section {
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  left: 0%;
+/* =========================================================
+   THEME VARIABLES
+========================================================= */
+$navy: #022c43;
+$navy-light: #03324f;
+$yellow: #ffd700;
+$yellow-dark: #e6c200;
+$yellow-deep: #cc9900;
+
+/* =========================================================
+   MAIN SKILLS PAGE
+========================================================= */
+.skills-page {
+  background-color: $navy;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start; /* start from top */
-  gap: 2rem; /* space between heading and icons */
-  padding-top: 2rem; /* small gap from very top */
-  text-align: center;
-  overflow: hidden;
-  animation: fadeIn 1.5s ease-in-out;
-  z-index: 2; /* keep above background if needed */
+  justify-content: space-between;
+  padding-left: 100px;
+  padding-right: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 }
 
+/* =========================================================
+   SKILLS SECTION (LEFT ON DESKTOP, TOP ON MOBILE)
+========================================================= */
+.skills-section {
+  flex: 1 1 50%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 2;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
 .skills-title {
-  color: yellow;
-  font-size: 6.5rem;
-  margin-bottom: 1rem;
+  color: $yellow;
+  font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
   display: inline-block;
+  line-height: 1.1;
   transition: transform 0.3s ease, color 0.3s ease;
-  margin-left: -50%;
 
   &:hover {
     color: #ffd700;
-    transform: scale(1.2) rotate(-5deg);
+    transform: scale(1.08) rotate(-3deg);
   }
 }
 
+/* =========================================================
+   SKILLS GRID
+========================================================= */
 .skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-left: 10%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem 1.4rem;
+  justify-items: center;
+  align-items: center;
 }
 
+/* =========================================================
+   SKILL CARD
+========================================================= */
 .skill-card {
+  width: 115px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding: 10px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: transparent;
+  transition: transform 0.3s cubic-bezier(0.34, 1.1, 0.4, 1), box-shadow 0.3s ease, background 0.3s ease;
 
   &:hover {
-    transform: translateY(-10px) scale(1.1);
-    box-shadow: 0 8px 15px rgba(255, 215, 0, 0.6);
+    transform: translateY(-8px) scale(1.08);
+    background: rgba(3, 50, 79, 0.45);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.35);
+  }
+
+  .skill-image {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .skill-image {
+    transform: scale(1.06);
+  }
+
+  .skill-name {
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  &:hover .skill-name {
+    color: $yellow;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
   }
 }
 
-.skill-image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-.skill-name {
-  font-size: 1.2rem;
-  color: white;
-  transition: color 0.3s ease;
-}
-
-.skill-card:hover .skill-name {
-  color: #ffd700;
-}
-
-/* RIGHT side — 3D embed, exactly half screen on the right */
+/* =========================================================
+   3D SPLINE SECTION (RIGHT ON DESKTOP, BOTTOM ON MOBILE)
+========================================================= */
 .skills-3d {
-  position: absolute;
-  right: 0;
-  top: 0;
+  flex: 1 1 50%;
   width: 50%;
-  height: 100vh;
-  background: transparent;
-  z-index: 1; /* behind the left panel's heading if overlapping */
-  justify-content: center; /* center horizontally */
-  align-items: center;  
+  height: 78vh;
+  min-height: 480px;
+  max-height: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  .spline-embed {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent !important;
+    display: block;
+    pointer-events: auto;
+  }
 }
 
-.spline-embed {
-  width: 100%;
-  height: 100%;
-  background: transparent !important;
-  border: 0;
-  transform: translateX(-80px); 
-}
-
-/* Fade-in animation */
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE: LAPTOP / TABLET LANDSCAPE (max-width: 1200px)
+========================================================= */
+@media screen and (max-width: 1200px) {
+  .skills-page {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .skills-3d {
+    height: 65vh;
+    min-height: 420px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE: TABLET & MOBILE (max-width: 900px)
+========================================================= */
+@media screen and (max-width: 900px) {
+  .skills-page {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px 40px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .skills-section {
+    flex: none;
+    width: 100%;
+    max-width: 520px;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .skills-title {
+    text-align: center;
+    margin: 0 0 0.5rem 0;
+    font-size: clamp(2.8rem, 10vw, 4.2rem);
+  }
+
+  .skills-container {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 0.8rem;
+    margin: 0 auto;
+  }
+
+  .skill-card {
+    width: 100px;
+    padding: 8px 4px;
+
+    .skill-image {
+      width: 56px;
+      height: 56px;
+    }
+
+    .skill-name {
+      font-size: 0.85rem;
+    }
+  }
+
+  .skills-3d {
+    flex: none;
+    width: 100%;
+    max-width: 500px;
+    height: 50vh;
+    min-height: 320px;
+    max-height: 480px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+
+    .spline-embed {
+      transform: none !important;
+    }
+  }
+}
+
+/* =========================================================
+   RESPONSIVE: STANDARD MOBILE (max-width: 480px)
+========================================================= */
+@media screen and (max-width: 480px) {
+  .skills-page {
+    padding: 55px 16px 30px;
+  }
+
+  .skills-section {
+    gap: 1.2rem;
+  }
+
+  .skills-title {
+    font-size: clamp(2.5rem, 13vw, 3.6rem);
+  }
+
+  .skills-container {
+    gap: 1.2rem 0.4rem;
+  }
+
+  .skill-card {
+    width: 88px;
+    padding: 6px 3px;
+
+    .skill-image {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-name {
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+  }
+
+  .skills-3d {
+    height: 42vh;
+    min-height: 280px;
+    max-height: 400px;
+    margin-top: 1rem;
+
+    .spline-embed {
+      transform: none !important;
+    }
+  }
+}
+
+/* =========================================================
+   RESPONSIVE: SMALL MOBILE (max-width: 360px)
+========================================================= */
+@media screen and (max-width: 360px) {
+  .skills-page {
+    padding: 50px 10px 25px;
+  }
+
+  .skills-title {
+    font-size: 2.3rem;
+  }
+
+  .skills-container {
+    gap: 1rem 0.2rem;
+  }
+
+  .skill-card {
+    width: 76px;
+    padding: 4px 2px;
+
+    .skill-image {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.25rem;
+    }
+
+    .skill-name {
+      font-size: 0.7rem;
+    }
+  }
+
+  .skills-3d {
+    height: 38vh;
+    min-height: 250px;
+    max-height: 340px;
+    margin-top: 0.8rem;
+
+    .spline-embed {
+      transform: none !important;
+    }
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "Vaibhav Singh",
+  "preferredName": "Vaibhav",
+  "title": "Front End Developer / AI & ML Developer / Robotics & Drone Developer",
+  "headline": "Front End Developer / AI / ML Developer / Robotics / Drone Developer",
+  "bio": "Vaibhav Singh is a developer working across front-end development, AI/ML, robotics, and drone technology.",
+  "location": {
+    "city": "Kanpur",
+    "country": "India"
+  },
+  "currentResidence": "Kanpur, India",
+  "languages": ["English", "Hindi"],
+  "interests": [
+    "Front-End Development & Modern Web UIs",
+    "Artificial Intelligence & Machine Learning",
+    "Robotics & Autonomous Drones",
+    "Graphic Design & Visual Branding",
+    "Video Editing"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "webDevelopment": [
+    "HTML / HTML5",
+    "CSS / CSS3",
+    "JavaScript (ES6+)",
+    "React",
+    "SCSS / SASS",
+    "Node.js",
+    "MongoDB",
+    "Stripe API Integration"
+  ],
+  "programming": [
+    "JavaScript",
+    "Python",
+    "Java"
+  ],
+  "aiMl": [
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "Convolutional Neural Networks (CNN)",
+    "OpenCV",
+    "YOLO",
+    "Computer Vision & Video Analytics"
+  ],
+  "design": [
+    "Adobe Illustrator",
+    "Adobe Photoshop",
+    "Adobe Premiere Pro",
+    "After Effects",
+    "Canva",
+    "Branding & Identity Design",
+    "Typography",
+    "Motion Graphics",
+    "Color Grading & Audio Sync"
+  ],
+  "other": [
+    "Embedded Systems (Arduino, Raspberry Pi)",
+    "Robotics & Autonomous Drones",
+    "GPS Object Tracking & Route Optimization",
+    "Git & Version Control",
+    "Leaflet (Maps Integration)",
+    "EmailJS Integration"
+  ]
+}

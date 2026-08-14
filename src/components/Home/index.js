@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
 import LogoTitle from '../../assets/images/v logos.png'
+import ResumePDF from '../../assets/resume/Vaibhav-Singh-Resume.pdf'
 import Logo from './Logo'
 import './index.scss'
 
@@ -60,9 +61,18 @@ const Home = () => {
             />
           </h1>
           <h2>Front End Developer / AI / ML Developer / Robotics / Drone Developer</h2>
-          <Link to="/contact" className="flat-button">
-            CONTACT ME
-          </Link>
+          <div className="button-group">
+            <Link to="/contact" className="flat-button">
+              CONTACT ME
+            </Link>
+            <a
+              href={ResumePDF}
+              download="Vaibhav-Singh-Resume.pdf"
+              className="flat-button"
+            >
+              DOWNLOAD RESUME
+            </a>
+          </div>
         </div>
         <Logo />
       </div>

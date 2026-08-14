@@ -62,6 +62,19 @@
     animation: fadeIn 1s 1.8s backwards;
   }
 
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+
+    .flat-button {
+      margin-top: 0;
+      float: none;
+    }
+  }
+
   .flat-button {
     color: #ffd700;
     font-size: 13px;
@@ -71,10 +84,12 @@
     text-decoration: none;
     padding: 10px 18px;
     border: 1px solid #ffd700;
-    margin-top: 25px;
-    float: left;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
     animation: fadeInAnimation 1s 1.8s backwards;
     white-space: nowrap;
+    transition: background 0.3s ease, color 0.3s ease;
 
     &:hover {
       background: #ffd700;
@@ -100,11 +115,35 @@
     box-sizing: border-box;
   }
 
-  .home-page .flat-button {
-    float: none;
-    display: block;
+  .home-page .button-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
     margin: 20px auto 0 auto;
-    width: 124px;
+    width: 100%;
+
+    .flat-button {
+      width: auto;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .home-page .button-group {
+    flex-direction: column;
+    gap: 12px;
+
+    .flat-button {
+      min-width: 190px;
+      max-width: 260px;
+      padding: 10px 16px;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
   }
 
   .logo-container {

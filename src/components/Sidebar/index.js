@@ -1,13 +1,16 @@
 import './index.scss'
 import { useState } from 'react'
 import LogoSubtitle from '../../assets/images/vaibhav.png'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import {
   faLinkedin,
   faGithub,
   faInstagram,
   faSkype,
 } from '@fortawesome/free-brands-svg-icons'
+
 import {
   faHome,
   faUser,
@@ -15,8 +18,9 @@ import {
   faSuitcase,
   faBars,
   faClose,
-  faLaptopCode, // ✅ Added Skills Icon
+  faLaptopCode,
 } from '@fortawesome/free-solid-svg-icons'
+
 import { Link, NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
@@ -24,59 +28,89 @@ const Sidebar = () => {
 
   return (
     <div className="nav-bar">
+
+      {/* Logo */}
       <Link
         className="logo"
         to="/"
         onClick={() => setShowNav(false)}
       >
-        <img className="sub-logo" src={LogoSubtitle} alt="vaibhav" />
+        <img
+          className="sub-logo"
+          src={LogoSubtitle}
+          alt="Vaibhav"
+        />
       </Link>
 
+      {/* Navigation */}
       <nav className={showNav ? 'mobile-show' : ''}>
+
+        {/* Home */}
         <NavLink
           exact="true"
           activeclassname="active"
           to="/"
           onClick={() => setShowNav(false)}
         >
-          <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+          <FontAwesomeIcon
+            icon={faHome}
+            color="#4d4d4e"
+          />
         </NavLink>
+
+        {/* About */}
         <NavLink
           activeclassname="active"
           className="about-link"
           to="/about"
           onClick={() => setShowNav(false)}
         >
-          <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+          <FontAwesomeIcon
+            icon={faUser}
+            color="#4d4d4e"
+          />
         </NavLink>
+
+        {/* Projects */}
         <NavLink
           activeclassname="active"
           className="portfolio-link"
-          to="/portfolio"
+          to="/Projects"
           onClick={() => setShowNav(false)}
         >
-          <FontAwesomeIcon icon={faSuitcase} color="#4d4d4e" />
+          <FontAwesomeIcon
+            icon={faSuitcase}
+            color="#4d4d4e"
+          />
         </NavLink>
 
-        {/* ✅ Skills link */}
+        {/* Skills */}
         <NavLink
           activeclassname="active"
           className="skills-link"
           to="/skills"
           onClick={() => setShowNav(false)}
         >
-          <FontAwesomeIcon icon={faLaptopCode} color="#4d4d4e" />
+          <FontAwesomeIcon
+            icon={faLaptopCode}
+            color="#4d4d4e"
+          />
         </NavLink>
 
+        {/* Contact */}
         <NavLink
           activeclassname="active"
           className="contact-link"
           to="/contact"
           onClick={() => setShowNav(false)}
         >
-          <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            color="#4d4d4e"
+          />
         </NavLink>
 
+        {/* Close Icon - Mobile */}
         <FontAwesomeIcon
           onClick={() => setShowNav(false)}
           icon={faClose}
@@ -84,9 +118,13 @@ const Sidebar = () => {
           size="3x"
           className="close-icon"
         />
+
       </nav>
 
+      {/* Social Links */}
       <ul>
+
+        {/* LinkedIn */}
         <li>
           <a
             href="https://www.linkedin.com/in/vaibhav-singh-991op/"
@@ -100,6 +138,8 @@ const Sidebar = () => {
             />
           </a>
         </li>
+
+        {/* GitHub */}
         <li>
           <a
             href="https://github.com/vaibhavsingh00"
@@ -113,11 +153,13 @@ const Sidebar = () => {
             />
           </a>
         </li>
+
+        {/* Instagram */}
         <li>
           <a
             href="https://www.instagram.com/vg_vaibhavsingh/"
-            rel="noreferrer"
             target="_blank"
+            rel="noreferrer"
           >
             <FontAwesomeIcon
               icon={faInstagram}
@@ -126,8 +168,14 @@ const Sidebar = () => {
             />
           </a>
         </li>
+
+        {/* Skype */}
         <li>
-          <a href="skype:live:bobangajicsm" rel="noreferrer" target="_blank">
+          <a
+            href="skype:live:bobangajicsm"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon
               icon={faSkype}
               color="#4d4d4e"
@@ -135,8 +183,10 @@ const Sidebar = () => {
             />
           </a>
         </li>
+
       </ul>
 
+      {/* Mobile Hamburger */}
       <FontAwesomeIcon
         onClick={() => setShowNav(true)}
         icon={faBars}
@@ -144,6 +194,7 @@ const Sidebar = () => {
         size="3x"
         className="hamburger-icon"
       />
+
     </div>
   )
 }

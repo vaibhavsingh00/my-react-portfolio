@@ -31,13 +31,16 @@ const Skills = () => {
     const timer = setTimeout(() => {
       setLetterClass("text-animate-hover");
     }, 3000);
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
-      {/* LEFT: your existing skills block (unchanged structure) */}
+    <div className="skills-page">
+
+      {/* LEFT / TOP: Skills */}
       <div className="skills-section">
+
         <h2 className="skills-title">
           <AnimatedLetters
             letterClass={letterClass}
@@ -49,27 +52,38 @@ const Skills = () => {
         <div className="skills-container">
           {skillsData.map((skill, index) => (
             <div key={index} className="skill-card">
-              <img src={skill.image} alt={skill.name} className="skill-image" />
-              <p className="skill-name">{skill.name}</p>
+              <img
+                src={skill.image}
+                alt={skill.name}
+                className="skill-image"
+              />
+
+              <p className="skill-name">
+                {skill.name}
+              </p>
             </div>
           ))}
         </div>
+
       </div>
 
-      {/* RIGHT: 3D model (iframe embed, transparent bg) */}
+      {/* RIGHT / BOTTOM: 3D */}
       <div className="skills-3d">
+
         <iframe
           className="spline-embed"
           title="skills-3d"
           src="https://my.spline.design/reactiveorb-VNCIM96gy8WbtQ0PwdJHqaiJ/"
           frameBorder="0"
-          width="100%" 
-          height="600px"
+          width="100%"
+          height="100%"
           allow="autoplay; fullscreen"
           loading="eager"
         />
+
       </div>
-    </>
+
+    </div>
   );
 };
 

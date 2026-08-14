@@ -1,0 +1,34 @@
+{
+  "education": [
+    {
+      "institution": "Pranveer Singh Institute of Technology (PSIT)",
+      "degree": "Bachelor of Technology (B.Tech)",
+      "field": "Computer Science & Engineering (AI Specialization)",
+      "specialization": "Computer Science & Engineering with an AI Specialization",
+      "percentage": "71%",
+      "location": "Kanpur, India",
+      "period": "Dec 2022 – Jul 2026",
+      "level": "College / Graduation / B.Tech"
+    },
+    {
+      "institution": "Bright Angels Education Center",
+      "degree": "Intermediate",
+      "board": "UP Board",
+      "class": "12th",
+      "percentage": "68%",
+      "location": "Kanpur, India",
+      "year": "2022",
+      "level": "Intermediate / 12th"
+    },
+    {
+      "institution": "Children's Care Higher Secondary School",
+      "degree": "Secondary Education",
+      "board": "UP Board",
+      "class": "10th",
+      "percentage": "74%",
+      "location": "Kanpur, India",
+      "year": "2020",
+      "level": "Secondary / 10th"
+    }
+  ]
+}
