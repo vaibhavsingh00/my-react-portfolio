@@ -271,10 +271,10 @@ $yellow-deep: #cc9900;
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     align-items: stretch;
-    gap: 25px;
-    max-width: 1240px;
+    gap: 24px;
+    max-width: 1280px;
   }
 
   .project-card {
@@ -292,9 +292,9 @@ $yellow-deep: #cc9900;
     &:hover,
     &:focus-visible {
       transform: translateY(-5px);
-      border-color: rgba(255, 215, 0, 0.3);
+      border-color: rgba(255, 215, 0, 0.35);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5),
-        0 0 16px rgba(255, 215, 0, 0.15);
+        0 0 16px rgba(255, 215, 0, 0.18);
     }
 
     &:focus-visible {
@@ -306,9 +306,13 @@ $yellow-deep: #cc9900;
       position: relative;
       width: 100%;
       height: 0;
-      padding-top: 62.5%; // locks a 16:10 box regardless of the image's real size
+      padding-top: 64%; // 16:10 aspect ratio container
       overflow: hidden;
-      background: rgba(0, 0, 0, 0.2);
+      background: radial-gradient(circle at center, rgba(3, 50, 79, 0.9) 0%, rgba(1, 20, 32, 0.98) 100%);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       img {
         position: absolute;
@@ -316,13 +320,14 @@ $yellow-deep: #cc9900;
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain; // Preserves 16:9, 9:16 reels, and other aspect ratios cleanly
         transition: transform 0.4s ease;
+        padding: 6px;
       }
     }
 
     &:hover .thumb img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .card-body {
@@ -400,6 +405,27 @@ $yellow-deep: #cc9900;
               box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
             }
           }
+
+          &.not-deployed {
+            flex: 1.15;
+            background: rgba(255, 255, 255, 0.07);
+            color: #94a3b8;
+            border: 1px dashed rgba(255, 255, 255, 0.22);
+            cursor: not-allowed;
+            font-size: 0.73rem;
+            line-height: 1.25;
+            padding: 8px 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            user-select: none;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.07);
+              box-shadow: none;
+            }
+          }
         }
       }
     }
@@ -462,18 +488,22 @@ $yellow-deep: #cc9900;
   .modal-image-wrap {
     position: relative;
     width: 100%;
-    height: 0;
-    padding-top: 56.25%; // locks a 16:9 box regardless of the image's real size
+    min-height: 240px;
+    max-height: 58vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(3, 40, 65, 0.95) 0%, rgba(1, 18, 28, 0.98) 100%);
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
 
     .modal-image {
-      position: absolute;
-      inset: 0;
       display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-height: 56vh;
+      object-fit: contain;
+      padding: 8px;
+      transition: transform 0.3s ease;
     }
   }
 
@@ -540,6 +570,26 @@ $yellow-deep: #cc9900;
           &:hover {
             background: $yellow-dark;
             box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+          }
+        }
+
+        &.not-deployed {
+          flex: 1.2;
+          background: rgba(255, 255, 255, 0.07);
+          color: #94a3b8;
+          border: 1px dashed rgba(255, 255, 255, 0.22);
+          cursor: not-allowed;
+          font-size: 0.82rem;
+          line-height: 1.3;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          user-select: none;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: none;
           }
         }
       }

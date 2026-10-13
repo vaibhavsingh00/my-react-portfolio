@@ -1,19 +1,31 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters";
+import OthersFolders from "../OthersSection/OthersFolders";
+import VideoGallery from "../VideoGallery/VideoGallery";
+import { personalVideos, clientVideos } from "../../data/videoService";
 import "./index.scss";
 
 // Import all images from local folder
-import graphic1 from "../../assets/images/graphic 1.jpg";
-import brandingKit from "../../assets/images/graphic 2.png";
-import ecommerceImg from "../../assets/images/e commerce.png";
-import portfolioImg from "../../assets/images/pprtfolio 1.png";
+import roomzyImg from "../../assets/images/roomzy.png";
+import intellioImg from "../../assets/images/intellio.png";
+import eventroImg from "../../assets/images/eventro.png";
 import skyguardImg from "../../assets/images/skyguard.png";
 import parcelDroneImg from "../../assets/images/drone dilivery.png";
 import pneumoniaImg from "../../assets/images/nemoniaya detection.png";
 import roadAccidentImg from "../../assets/images/jarvis project.png";
-import travelVlogImg from "../../assets/images/video editing.png";
-import eventReelImg from "../../assets/images/video editing (2).png";
+
+// Import all Graphic Design work from src/assets/images/graphic
+import financeYoutubeBanner from "../../assets/images/graphic/Blue and White Modern Finance Tips Youtube Banner.png";
+import aiConceptArt1 from "../../assets/images/graphic/Gemini_Generated_Image_e23330e23330e233.png";
+import aiConceptArt2 from "../../assets/images/graphic/Gemini_Generated_Image_ik51iiik51iiik51 (1).png";
+import aiConceptArt3 from "../../assets/images/graphic/Gemini_Generated_Image_ymysddymysddymys.png";
+import budgetReelCover1 from "../../assets/images/graphic/Green Modern Budget Tips Finance Influencer Instagram Reel Cover.png";
+import budgetReelCover2 from "../../assets/images/graphic/Green Modern Budget Tips Finance Influencer Instagram Reel Cover (1).png";
+import budgetReelCover3 from "../../assets/images/graphic/Green Modern Budget Tips Finance Influencer Instagram Reel Cover (2).png";
+import creativePosterDesign from "../../assets/images/graphic/Untitled design.png";
+import whyPhoneThumbnail from "../../assets/images/graphic/why phone.png";
 
 // ---------------------------------------------------------------------------
 // Data. Add / rename folders and projects here — nothing else needs to change.
@@ -24,24 +36,37 @@ const categories = [
     id: "web-development",
     projects: [
       {
-        name: "E-commerce Platform",
-        description: "MERN stack with payments.",
+        name: "Roomzy — AI-Powered PG, Room, Flat & Roommate Discovery Platform",
+        description:
+          "Roomzy is an AI-powered PG, room, flat and roommate discovery platform designed to make relocation and accommodation discovery easier for students, freshers, interns, and working professionals.",
         summary:
-          "Developed a full-stack e-commerce site with cart, authentication, and Stripe payments.",
-        image: ecommerceImg,
-        tech: ["React", "Node.js", "MongoDB", "Stripe"],
-        github: "https://github.com/yourusername/ecommerce",
-        demo: "#"
+          "Roomzy is an AI-powered PG, room, flat and roommate discovery platform designed to make relocation and accommodation discovery easier for students, freshers, interns, and working professionals.",
+        image: roomzyImg,
+        tech: ["React", "Node.js", "Express", "MongoDB", "AI Matching"],
+        github: "https://github.com/vaibhavsingh00/roomzy",
+        notDeployed: true
       },
       {
-        name: "Portfolio Website",
-        description: "Personal portfolio site.",
+        name: "Intelligo.AI",
+        description:
+          "Intelligo.AI is a full-stack AI-powered SaaS application built with the PERN Stack (PostgreSQL, Express, React, Node.js). It offers a range of intelligent tools that help users generate articles, create blog titles, generate images, remove backgrounds or objects from images, and analyze resumes — all in a clean, responsive web interface.",
         summary:
-          "Built a responsive portfolio with animations using React and SCSS.",
-        image: portfolioImg,
-        tech: ["React", "SCSS", "CSS Animations"],
-        github: "https://github.com/yourusername/portfolio",
-        demo: "#"
+          "Intelligo.AI is a full-stack AI-powered SaaS application built with the PERN Stack (PostgreSQL, Express, React, Node.js). It offers a range of intelligent tools that help users generate articles, create blog titles, generate images, remove backgrounds or objects from images, and analyze resumes — all in a clean, responsive web interface.",
+        image: intellioImg,
+        tech: ["PostgreSQL", "Express", "React", "Node.js", "PERN Stack", "AI Tools"],
+        github: "https://github.com/vaibhavsingh00/Intellio.AI",
+        demo: "https://intellio-ai-ruby.vercel.app/"
+      },
+      {
+        name: "Eventora",
+        description:
+          "Eventora is a full-stack event booking and management platform built with the MERN stack (MongoDB, Express, React, Node.js) and Vite. It provides seamless event discovery, two-factor OTP verification for registrations and bookings, role-based dashboards for users and organizers, dynamic capacity tracking, and automated email notifications.",
+        summary:
+          "Eventora is a full-stack event booking and management platform built with the MERN stack (MongoDB, Express, React, Node.js) and Vite. It provides seamless event discovery, two-factor OTP verification for registrations and bookings, role-based dashboards for users and organizers, dynamic capacity tracking, and automated email notifications.",
+        image: eventroImg,
+        tech: ["React", "Vite", "Node.js", "Express", "MongoDB", "MERN Stack"],
+        github: "https://github.com/vaibhavsingh00/eventora",
+        demo: "https://eventora-blue.vercel.app/"
       }
     ]
   },
@@ -75,22 +100,85 @@ const categories = [
     id: "graphic-design",
     projects: [
       {
-        name: "Modern Logo Design",
-        description: "Minimalistic tech startup logo.",
+        name: "Finance Tips — YouTube Banner & Thumbnail",
+        description:
+          "Modern YouTube banner and thumbnail design with clean visual branding and financial typography.",
         summary:
-          "Designed a clean, modern logo using Adobe Illustrator, focusing on geometric balance.",
-        image: graphic1,
-        tech: ["Illustrator", "Typography", "Branding"],
-        github: "https://github.com/yourusername/logo-design"
+          "High-impact YouTube banner and promotional thumbnail designed for modern finance creators, focusing on visual hierarchy, typography, and clear branding.",
+        image: financeYoutubeBanner,
+        tech: ["YouTube Banner", "Thumbnail", "Graphic Design", "Photoshop"]
       },
       {
-        name: "Branding Kit",
-        description: "Full branding package.",
+        name: "Budget Tips — Instagram Reel Cover (Vol. 1)",
+        description:
+          "High-CTR Instagram Reel cover created for finance influencer content.",
         summary:
-          "Included typography, color palette, and mockups for social media branding.",
-        image: brandingKit,
-        tech: ["Illustrator", "Photoshop", "Brand Strategy"],
-        github: "https://github.com/yourusername/branding-kit"
+          "Eye-catching vertical 9:16 Instagram Reel cover designed for personal finance and budgeting content, optimized for mobile feed readability.",
+        image: budgetReelCover1,
+        tech: ["Instagram Reel", "Cover Design", "Social Media", "Canva"]
+      },
+      {
+        name: "Budget Tips — Instagram Reel Cover (Vol. 2)",
+        description:
+          "Modern finance influencer reel cover design featuring bold typography.",
+        summary:
+          "Engaging vertical reel cover variant designed to maximize views and click-through rates across Instagram Explore and Reels tabs.",
+        image: budgetReelCover2,
+        tech: ["Instagram Reel", "Visual Design", "Typography", "Branding"]
+      },
+      {
+        name: "Budget Tips — Instagram Reel Cover (Vol. 3)",
+        description:
+          "Creative social media reel thumbnail with contrast-driven aesthetic.",
+        summary:
+          "Third edition of the budget tips series with enhanced contrast, icons, and aesthetic color palettes for finance creators.",
+        image: budgetReelCover3,
+        tech: ["Instagram Reel", "Reel Cover", "Content Creation", "Graphic Design"]
+      },
+      {
+        name: "Why Phone — YouTube Thumbnail",
+        description:
+          "High-contrast YouTube video thumbnail designed for maximum click-through rate.",
+        summary:
+          "Dynamic YouTube thumbnail designed with high-contrast text, facial expression highlights, and compelling color accents to drive viewer interest.",
+        image: whyPhoneThumbnail,
+        tech: ["YouTube Thumbnail", "Graphic Design", "Visual Arts", "Photoshop"]
+      },
+      {
+        name: "Creative Poster & Visual Design",
+        description:
+          "Custom visual composition showcasing typography balance and modern design aesthetics.",
+        summary:
+          "Artistic graphic design composition created for digital branding, poster displays, and marketing media.",
+        image: creativePosterDesign,
+        tech: ["Poster Design", "Visual Arts", "Branding", "Creative Design"]
+      },
+      {
+        name: "AI Concept Art & Visual Design I",
+        description:
+          "Futuristic digital concept visual exploring lighting, textures, and atmospheric depth.",
+        summary:
+          "Creative digital artwork and concept visualization blending modern design principles with AI-assisted creative workflows.",
+        image: aiConceptArt1,
+        tech: ["Concept Art", "Digital Art", "Visual Design", "AI Arts"]
+      },
+      {
+        name: "AI Concept Art & Visual Design II",
+        description:
+          "Surreal digital art composition with dynamic color grading and cinematic tone.",
+        summary:
+          "High-resolution digital visual composition exploring rich color gradients, surreal textures, and cinematic aesthetic styling.",
+        image: aiConceptArt2,
+        tech: ["Concept Art", "Surreal Art", "Color Grading", "Visual Arts"]
+      },
+      {
+        name: "AI Concept Art & Visual Design III",
+        description:
+          "Cinematic digital artwork focusing on character depth, lighting, and detail.",
+        summary:
+          "Atmospheric digital composition with custom lighting contrast, intricate details, and cinematic color palettes.",
+        image: aiConceptArt3,
+        tech: ["Concept Art", "Digital Illustration", "Cinematic Visuals", "Design"]
       }
     ]
   },
@@ -119,29 +207,9 @@ const categories = [
     ]
   },
   {
-    name: "Other Projects",
-    id: "other-projects",
-    projects: [
-      {
-        name: "Travel Vlog Edit",
-        description: "Cinematic travel vlog.",
-        summary:
-          "Edited footage with transitions, color grading, and music sync.",
-        image: travelVlogImg,
-        tech: ["Premiere Pro", "Color Grading", "Audio Sync"],
-        github: "https://github.com/yourusername/travel-vlog",
-        demo: "#"
-      },
-      {
-        name: "Event Highlight Reel",
-        description: "College event highlights.",
-        summary:
-          "Produced a dynamic highlights video for social media promotion.",
-        image: eventReelImg,
-        tech: ["Premiere Pro", "After Effects", "Motion Graphics"],
-        github: "https://github.com/yourusername/event-reel"
-      }
-    ]
+    name: "Video Editing",
+    id: "video-editing",
+    isVideoEditingSection: true
   }
 ];
 
@@ -151,9 +219,22 @@ const FOLDER_OPEN_DELAY = 520;
 
 const Projects = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [animatingId, setAnimatingId] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const categoryParam = searchParams.get("category");
+  const subParam = searchParams.get("sub");
+
+  const selectedCategory = categoryParam
+    ? (categories.find((c) => c.id === categoryParam) ||
+       ((categoryParam === "others" || categoryParam === "other-projects")
+         ? categories.find((c) => c.id === "video-editing")
+         : null))
+    : null;
+
+  const selectedSubcategory =
+    selectedCategory && selectedCategory.id === "video-editing" ? subParam : null;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -162,33 +243,49 @@ const Projects = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Escape closes whatever is topmost: project modal, then folder.
+  // Escape closes whatever is topmost: project modal, then subcategory, then folder.
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key !== "Escape") return;
-      if (selectedProject) setSelectedProject(null);
-      else if (selectedCategory) setSelectedCategory(null);
+      if (selectedProject) {
+        setSelectedProject(null);
+      } else if (selectedSubcategory) {
+        setSearchParams({ category: "video-editing" });
+      } else if (selectedCategory) {
+        setSearchParams({});
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [selectedProject, selectedCategory]);
+  }, [selectedProject, selectedCategory, selectedSubcategory, setSearchParams]);
 
   const openFolder = useCallback(
     (category) => {
       if (animatingId) return;
       setAnimatingId(category.id);
       setTimeout(() => {
-        setSelectedCategory(category);
+        setSearchParams({ category: category.id });
         setAnimatingId(null);
       }, FOLDER_OPEN_DELAY);
     },
-    [animatingId]
+    [animatingId, setSearchParams]
   );
 
   const closeFolder = useCallback(() => {
-    setSelectedCategory(null);
+    setSearchParams({});
     setSelectedProject(null);
-  }, []);
+  }, [setSearchParams]);
+
+  const handleSelectSubcategory = useCallback(
+    (subId) => {
+      if (subId) {
+        setSearchParams({ category: "video-editing", sub: subId });
+      } else {
+        setSearchParams({ category: "video-editing" });
+      }
+    },
+    [setSearchParams]
+  );
 
   const openProject = (project, e) => {
     e.stopPropagation();
@@ -215,7 +312,7 @@ const Projects = () => {
           />
         </h1>
 
-        {selectedCategory && (
+        {selectedCategory && !selectedCategory.isVideoEditingSection && (
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <button type="button" className="crumb root" onClick={closeFolder}>
               Projects
@@ -247,6 +344,34 @@ const Projects = () => {
               </button>
             ))}
           </div>
+        ) : selectedCategory.isVideoEditingSection ? (
+          selectedSubcategory === "personal" ? (
+            <VideoGallery
+              key="personal"
+              categoryName="Personal Edits"
+              categoryType="personal"
+              videos={personalVideos}
+              onBackToVideoEditing={() => handleSelectSubcategory(null)}
+              onBackToProjects={closeFolder}
+            />
+          ) : selectedSubcategory === "client" ? (
+            <VideoGallery
+              key="client"
+              categoryName="Client"
+              categoryType="client"
+              videos={clientVideos}
+              onBackToVideoEditing={() => handleSelectSubcategory(null)}
+              onBackToProjects={closeFolder}
+            />
+          ) : (
+            <OthersFolders
+              key="video-editing-folders"
+              personalCount={personalVideos.length}
+              clientCount={clientVideos.length}
+              onSelectSubcategory={handleSelectSubcategory}
+              onBackToProjects={closeFolder}
+            />
+          )
         ) : (
           <div className="folder-contents" key={selectedCategory.id}>
             <button type="button" className="back-btn" onClick={closeFolder}>
@@ -254,7 +379,7 @@ const Projects = () => {
             </button>
 
             <div className="project-grid">
-              {selectedCategory.projects.map((project, idx) => (
+              {selectedCategory.projects && selectedCategory.projects.map((project, idx) => (
                 <div
                   className="project-card"
                   key={idx}
@@ -264,42 +389,60 @@ const Projects = () => {
                   onKeyDown={(e) => handleCardKeyDown(project, e)}
                 >
                   <div className="thumb">
-                    <img src={project.image} alt={project.name} />
+                    <img src={project.image} alt={project.name} loading="lazy" />
                   </div>
                   <div className="card-body">
                     <p className="name">{project.name}</p>
                     <p className="desc">{project.description}</p>
-                    <div className="tech-row">
-                      {project.tech.map((t) => (
-                        <span className="tech-pill" key={t}>
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="buttons">
-                      <button
-                        type="button"
-                        className="btn github"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(project.github, "_blank");
-                        }}
-                      >
-                        GitHub
-                      </button>
-                      {project.demo && (
-                        <button
-                          type="button"
-                          className="btn demo"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.demo, "_blank");
-                          }}
-                        >
-                          Live Demo
-                        </button>
-                      )}
-                    </div>
+                    {project.tech && project.tech.length > 0 && (
+                      <div className="tech-row">
+                        {project.tech.map((t) => (
+                          <span className="tech-pill" key={t}>
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {(project.github || project.demo || project.notDeployed) && (
+                      <div className="buttons">
+                        {project.github && (
+                          <button
+                            type="button"
+                            className="btn github"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.github, "_blank", "noopener,noreferrer");
+                            }}
+                          >
+                            GitHub
+                          </button>
+                        )}
+                        {project.notDeployed ? (
+                          <button
+                            type="button"
+                            className="btn not-deployed"
+                            disabled
+                            onClick={(e) => e.stopPropagation()}
+                            title="This project is not deployed"
+                          >
+                            This project is not deployed
+                          </button>
+                        ) : project.demo ? (
+                          <button
+                            type="button"
+                            className="btn demo"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (project.demo !== "#") {
+                                window.open(project.demo, "_blank", "noopener,noreferrer");
+                              }
+                            }}
+                          >
+                            Live Demo
+                          </button>
+                        ) : null}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -335,33 +478,52 @@ const Projects = () => {
             <div className="modal-body">
               <h3>{selectedProject.name}</h3>
               <p className="modal-summary">{selectedProject.summary}</p>
-              <div className="tech-row">
-                {selectedProject.tech.map((t) => (
-                  <span className="tech-pill" key={t}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="buttons">
-                <button
-                  type="button"
-                  className="btn github"
-                  onClick={() => window.open(selectedProject.github, "_blank")}
-                >
-                  GitHub
-                </button>
-                {selectedProject.demo && (
-                  <button
-                    type="button"
-                    className="btn demo"
-                    onClick={() =>
-                      window.open(selectedProject.demo, "_blank")
-                    }
-                  >
-                    Live Demo
-                  </button>
-                )}
-              </div>
+              {selectedProject.tech && selectedProject.tech.length > 0 && (
+                <div className="tech-row">
+                  {selectedProject.tech.map((t) => (
+                    <span className="tech-pill" key={t}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {(selectedProject.github || selectedProject.demo || selectedProject.notDeployed) && (
+                <div className="buttons">
+                  {selectedProject.github && (
+                    <button
+                      type="button"
+                      className="btn github"
+                      onClick={() =>
+                        window.open(selectedProject.github, "_blank", "noopener,noreferrer")
+                      }
+                    >
+                      GitHub
+                    </button>
+                  )}
+                  {selectedProject.notDeployed ? (
+                    <button
+                      type="button"
+                      className="btn not-deployed"
+                      disabled
+                      title="This project is not deployed"
+                    >
+                      This project is not deployed
+                    </button>
+                  ) : selectedProject.demo ? (
+                    <button
+                      type="button"
+                      className="btn demo"
+                      onClick={() => {
+                        if (selectedProject.demo !== "#") {
+                          window.open(selectedProject.demo, "_blank", "noopener,noreferrer");
+                        }
+                      }}
+                    >
+                      Live Demo
+                    </button>
+                  ) : null}
+                </div>
+              )}
             </div>
           </div>
         </div>

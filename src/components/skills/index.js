@@ -12,16 +12,31 @@ import AdobeImge from "../../assets/images/adobe 2.png";
 import canva from "../../assets/images/canva.png";
 import java from "../../assets/images/java.png";
 
+import skill1 from "../../assets/images/1.png";
+import skill2 from "../../assets/images/2.png";
+import skill3 from "../../assets/images/3.png";
+import skill4 from "../../assets/images/4.png";
+import skill5 from "../../assets/images/5.png";
+import skill6 from "../../assets/images/6.png";
+import skill7 from "../../assets/images/7.png";
+
 const skillsData = [
   { name: "HTML", image: htmlImg },
   { name: "CSS", image: cssImg },
   { name: "JavaScript", image: jsImg },
   { name: "React", image: reactImg },
   { name: "Python", image: pythonImg },
+  { name: "Java", image: java },
+  { name: "MongoDB", image: skill6 },
+  { name: "GitHub", image: skill1 },
+  { name: "Linux", image: skill5 },
+  { name: "Adobe Photoshop", image: skill3 },
   { name: "Adobe Illustrator", image: AdobeImg },
   { name: "Adobe Premiere Pro", image: AdobeImge },
+  { name: "CapCut", image: skill2 },
   { name: "Canva", image: canva },
-  { name: "Java", image: java },
+  { name: "ChatGPT", image: skill4 },
+  { name: "Claude AI", image: skill7 },
 ];
 
 const Skills = () => {

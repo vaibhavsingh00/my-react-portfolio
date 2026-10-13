@@ -8,7 +8,7 @@ import {
   faLinkedin,
   faGithub,
   faInstagram,
-  faSkype,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -169,15 +169,15 @@ const Sidebar = () => {
           </a>
         </li>
 
-        {/* Skype */}
+        {/* YouTube */}
         <li>
           <a
-            href="skype:live:bobangajicsm"
+            href="https://www.youtube.com/@TechByVaibhav5"
             target="_blank"
             rel="noreferrer"
           >
             <FontAwesomeIcon
-              icon={faSkype}
+              icon={faYoutube}
               color="#4d4d4e"
               className="anchor-icon"
             />
