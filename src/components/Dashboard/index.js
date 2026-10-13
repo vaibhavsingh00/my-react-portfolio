@@ -6,16 +6,18 @@ import Login from '../Login';
 const Dashboard = () => {
 
     const [user, setUser] = useState(null);
-    const auth = getAuth();
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if(user) {
                 setUser(user);
             } else {
                 setUser(null);
             }
-        })
+        });
+
+        return () => unsubscribe();
     }, []);
 
 
